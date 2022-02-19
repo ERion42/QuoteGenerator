@@ -11,21 +11,20 @@ const loader = document.getElementById('loader');
 // // This section is used when NOT using the local array of quotes
 // let apiQuotes = [];
 
-// show loading
-function loading() {
+function showLoadingSpinner() {
     loader.hidden = false;
     quoteContainer.hidden = true;
 }
 
 // hide loading
-function complete() {
+function removeLoadingSpinner() {
     quoteContainer.hidden = false;
     loader.hidden = true;
 }
 
 // Show New Quote
 function newQuote() {
-    loading();
+    showLoadingSpinner();
     // Pick a random quote from apiQuotes array
     // // This next line is only needed when NOT using the local array of quotes
     // const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
@@ -44,7 +43,7 @@ function newQuote() {
     }
     // Set Quote, hide loader
     quoteText.textContent = quote.text;
-    complete();
+    removeLoadingSpinner();
 };
 
 
@@ -70,7 +69,7 @@ function newQuote() {
 
 // Tweet Quote
 function tweetQuote() {
-    loading();
+    showLoadingSpinner();
     // Set URL with quote and author name
     const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
     // Open new window using set URL

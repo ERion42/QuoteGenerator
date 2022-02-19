@@ -1,3 +1,6 @@
+// Some sections have been commented out because they rely on connecting directly with the API to gather the quotes. I wanted to leave this in, but I also wanted to use the method that gave me more control over the quotes.
+// Eventually I would like to go back in and use both methods, but this will take a little to get it going
+
 const quoteContainer = document.getElementById('quote-container');
 const quoteText = document.getElementById('quote');
 const authorText = document.getElementById('author');

@@ -1,3 +1,9 @@
+const quoteContainer = document.getElementById('quote-container');
+const quoteText = document.getElementById('quote');
+const authorText = document.getElementById('author');
+const twitterBtn = document.getElementById('twitter');
+const newQuoteBtn = document.getElementById('new-quote');
+
 // // This section is used when NOT using the local array of quotes
 // let apiQuotes = [];
 
@@ -7,7 +13,19 @@ function newQuote() {
     // // This next line is only needed when NOT using the local array of quotes
     // const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
     const quote = localQuotes[Math.floor(Math.random() * localQuotes.length)]; 
-    console.log(quote);
+    // Check if Author is Null and replace with "Unknown"
+    if (!quote.author) {
+        authorText.textContent = "Unknown";
+    } else {
+        authorText.textContent = quote.author;
+    };
+    // Check Quote Length
+    if (quote.text.length > 120) {
+        quoteText.classList.add('long-quote');
+    } else {
+        quoteText.classList.remove('long-quote');
+    }
+    quoteText.textContent = quote.text;
 };
 
 
@@ -30,4 +48,19 @@ function newQuote() {
 // // On Load
 // getQuotes();
 
+
+// Tweet Quote
+function tweetQuote() {
+    // Set URL with quote and author name
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
+    // Open new window using set URL
+    window.open(twitterUrl, '_blank');
+}
+
+
+// Event Listeners
+newQuoteBtn.addEventListener('click', newQuote);
+twitterBtn.addEventListener('click', tweetQuote);
+
+// On Load
 newQuote();

@@ -6,3 +6,4 @@ Skills: HTML / CSS / JavaScript
 
 - 🔭 I’m currently working on this page. 
 
+![ScreenShot](https://github.com/ERion42/QuoteGenerator/blob/115afc73e87a499c6cba696de1fd460edec1c14d/screenShotInitial.png)
